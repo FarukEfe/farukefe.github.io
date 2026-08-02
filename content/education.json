@@ -1,0 +1,24 @@
+[
+  {
+    "degree": "BASc, Computer Science (Co-op)",
+    "institution": "McMaster University, Faculty of Engineering",
+    "location": "Hamilton, Ontario, Canada",
+    "start": "Sep 2023",
+    "end": "May 2028",
+    "note": "Bachelor of Applied Science."
+  },
+  {
+    "degree": "High School Diploma",
+    "institution": "Lakefield College School",
+    "location": "Lakefield, Ontario, Canada",
+    "start": "Sep 2021",
+    "end": "Jul 2023"
+  },
+  {
+    "degree": "High School",
+    "institution": "Lycée Français Privé Saint-Joseph d'Istanbul",
+    "location": "Istanbul, Türkiye",
+    "start": "Sep 2019",
+    "end": "Jun 2021"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "Faruk Efe Yencilek",
+  "handle": "farukefe",
+  "role": "SWE & Cybersecurity Intern · CompBio Researcher",
+  "location": "Greater Toronto Area, Canada",
+  "now": "CS @ McMaster · Intern @ HAVELSAN & Stealth Startup · VP @ McMaster SynBio",
+  "available": true,
+  "availability_note": "Open to Summer 2027 internships",
+  "ascii": [
+    " ___ ___ ___ ",
+    "| -_|  _| -_|",
+    "|___|_| |___|"
+  ],
+  "tagline": "I am very much into computational biology tooling and systems engineering.",
+  "bio": [
+    "I focus on systems engineering at the intersection of computational biology and software safety. Currently, I am building a unified platform for Genome-Scale Metabolic Models (GEMs) to facilitate model extensions, gap-filling, and orthology analysis.",
+    "My engineering philosophy focuses on eliminating 'information islands', which are siloed codebases and isolated tooling. I advocate for a nation-wide or globally standardized software ecosystem in software safety, verification, and data flow so complex engineering can scale without friction.",
+    "Long-term, I aim to build a venture incubator that lowers the cost of taking deep-tech R&D, specifically in formal software safety and computational biology, from concept to commercial scale."
+  ]
+}
