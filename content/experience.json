@@ -1,0 +1,98 @@
+[
+  {
+    "role": "Software Engineer Intern",
+    "org": "HAVELSAN",
+    "start": "2026-08",
+    "end": null,
+    "summary": "Software engineering internship in Ankara, Türkiye.",
+    "highlights": [
+      "Joining the team for the Aug–Sept 2026 term."
+    ],
+    "stack": ["Software Engineering"],
+    "link": "https://www.havelsan.com.tr/"
+  },
+  {
+    "role": "Cybersecurity Engineer Intern",
+    "org": "Stealth Startup",
+    "start": "2026-07",
+    "end": null,
+    "summary": "Part-time security engineering and pen-testing on a project funded by major defense & aerospace firms (HAVELSAN, ASELSAN, TUSAŞ/TAI, and others), set to spin off into a D&A compliance startup in collaboration with SSB, where I will hold co-ownership.",
+    "highlights": [
+      "Full-stack: stood up an isolated, self-hosted GitLab with custom shell-scripted CI/CD, a DMZ on a Linux container running nginx, and a custom GitLab runner for deployment.",
+      "Built a pipeline that deploys software to the web without exposing the codebase to any cloud service. Also includes a local Docker-hosted deployment testing environment.",
+      "Cybersecurity: consulted defense & aerospace companies on meeting ISO 9001 and 27001 standards for quality and information security management systems.",
+      "Building a software ecosystem that enforces these compliance standards by design."
+    ],
+    "stack": ["Linux", "GitLab CI/CD", "nginx", "Docker", "Shell", "Pen-testing"],
+    "link": ""
+  },
+  {
+    "role": "Software Engineer Intern",
+    "org": "ROKETSAN",
+    "start": "2026-06",
+    "end": "2026-07",
+    "summary": "Intern at the Cyberpark office @ Bilkent, worked under the Flight Software Testing Unit.",
+    "highlights": [
+      "Built real-time telemetry monitoring software for decoding and visualizing binary packet streams from embedded hardware over TCP/UDP.",
+      "Shipped a user-defined packet schema editor, a live KPI dashboard with auto-expanding tiles, per-channel plotting, and a full CRC integrity pipeline supporting preset and custom algorithms.",
+      "Designed a clean singleton service architecture with subservices for packet ingestion and connection management.",
+      "Achieved thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet."
+    ],
+    "stack": ["TCP/UDP", "Embedded", "Real-time Systems", "CRC"],
+    "link": "https://www.roketsan.com.tr/"
+  },
+  {
+    "role": "Vice President",
+    "org": "McMaster SynBio",
+    "start": "2025-12",
+    "end": null,
+    "summary": "Leading the team toward IDEC 2026 @ Cambridge, UK.",
+    "highlights": [
+      "Project webpage development and management.",
+      "Primary assist in the entrepreneurship and dry-lab modelling subtracks."
+    ],
+    "stack": ["Leadership", "Web Development"],
+    "link": "https://www.mcmastersynbio.ca/"
+  },
+  {
+    "role": "Dry-Lab Modelling Researcher",
+    "org": "McMaster SynBio",
+    "start": "2025-01",
+    "end": "2025-12",
+    "summary": "Computational biology and full-stack work for the team's iGEM 2025 project @ Paris, France.",
+    "highlights": [
+      "CompBio: used genome-scale metabolic models to estimate reaction constraints under different engineering strains via Flux-Balance and Flux Variability Analyses.",
+      "Gap-filled and ran sensitivity analysis on the public iCre1355 model to assess the accuracy of a new pathway, using Escher, COBRApy, Memote, R, and shell scripts.",
+      "Full-stack: built the project website with Next.js, TypeScript, Tailwind, and Motion, and configured the GitLab CI/CD pipeline for smooth deployment.",
+      "SWE: created a Lab Inventory Management System (LIMS) for inventory, orders, and task delegation, with a Supabase backend (RLS + auth) and a Next.js/TypeScript/Tailwind frontend."
+    ],
+    "stack": ["COBRApy", "Escher", "Memote", "R", "Next.js", "TypeScript", "Tailwind", "Supabase"],
+    "link": "https://www.mcmastersynbio.ca/"
+  },
+  {
+    "role": "Computer Vision Engineer",
+    "org": "MAC RoboMaster",
+    "start": "2024-12",
+    "end": "2025-12",
+    "summary": "Computer vision work for the team's RoboMaster robotics effort.",
+    "highlights": [
+      "Built a Vision Transformer model for object detection.",
+      "Created a data pipeline to auto-label images for positional and enumerated labels and expand the dataset.",
+      "Produced the vision model's diagram for a presentation at the RoboMaster Technical Conference (RMTC)."
+    ],
+    "stack": ["Vision Transformers", "Object Detection", "Python"],
+    "link": "https://www.macrobomaster.com/"
+  },
+  {
+    "role": "Student Researcher",
+    "org": "iGEM Saint-Joseph",
+    "start": "2020-11",
+    "end": "2021-11",
+    "summary": "Participated in the iGEM 2021 competition in Istanbul, Türkiye.",
+    "highlights": [
+      "Contributed to a synthetic biology project using E. coli as the chassis."
+    ],
+    "stack": ["Synthetic Biology"],
+    "link": "https://igem.sj.k12.tr/"
+  }
+]

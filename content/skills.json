@@ -1,0 +1,26 @@
+{
+  "groups": [
+    {
+      "name": "Fluent",
+      "note": "daily drivers",
+      "items": ["TypeScript", "Python", "Linux", "Bash", "Next.js", "Tailwind"]
+    },
+    {
+      "name": "Comfortable",
+      "note": "used on real projects",
+      "items": ["nginx", "Docker", "GitLab CI/CD", "Supabase", "R", "COBRApy"]
+    },
+    {
+      "name": "Learning",
+      "note": "actively improving",
+      "items": ["Rust", "MATLAB / Simulink", "PyTorch"]
+    }
+  ],
+  "domains": [
+    "Cybersecurity",
+    "Computational Biology",
+    "Computer Vision",
+    "Full-stack Web",
+    "Embedded / Real-time"
+  ]
+}

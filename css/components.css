@@ -1,0 +1,260 @@
+/* Output components — the shared vocabulary every command draws from.
+   Per-command layouts (neofetch grid, project table, timeline, skill bars)
+   are NOT here on purpose. That's where the visual variety comes from, and
+   it belongs to whoever designs each section. Add them at the bottom under
+   their own headings as you build each command. */
+
+/* --- the echoed command line ----------------------------------------- */
+/* Spacing above each echo is what separates one command's output from the
+   next. Without it the scrollback reads as one undifferentiated wall. */
+.echo {
+  margin-top: var(--sp-4);
+  color: var(--muted);
+}
+.echo .p {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* --- output block ---------------------------------------------------- */
+.block { margin-top: var(--sp-2); }
+
+/* --- headings -------------------------------------------------------- */
+/* Box-drawing rule under the heading. The overflow:hidden + nowrap lets you
+   emit a fixed run of ─ and have it clip at whatever width the column is,
+   which is how you get a full-bleed rule in monospace without measuring. */
+.head {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+/* A solid block before the title — reads as a section marker in a TUI, the
+   way a highlighted row does in htop or fzf. Scoped to h2 (what section()
+   emits) so it never leaks onto the timeline's role line, which reuses .head. */
+h2.head::before {
+  content: "▌ ";
+  letter-spacing: 0;
+}
+.rule {
+  margin: 2px 0 var(--sp-2);
+  color: var(--line);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* --- prose ----------------------------------------------------------- */
+p { margin: var(--sp-1) 0; max-width: var(--prose); }
+b, strong { font-weight: 700; color: var(--fg); }
+.muted { color: var(--muted); }
+.dim   { color: var(--dim); }
+.err   { color: var(--error); }
+
+/* --- links ----------------------------------------------------------- */
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--accent); }
+
+/* --- clickable command ------------------------------------------------ */
+/* This is the discoverability fix — a recruiter who won't type still gets
+   the whole site. Dashed underline reads as "affordance" without looking
+   like a web button. */
+.cmd {
+  font: inherit;
+  color: var(--link);
+  background: none;
+  border: 0;
+  border-bottom: 1px dashed currentColor;
+  padding: 0 0.2ch;
+  cursor: pointer;
+}
+.cmd:hover { color: var(--accent); }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-3);
+  margin: var(--sp-1) 0;
+}
+
+/* --- reverse-video badge --------------------------------------------- */
+/* For status tags: SHIPPED, WIP, ARCHIVED. No border radius — rounded
+   corners are the fastest way to stop looking like a terminal. */
+.badge {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0 1ch;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.badge.wip      { background: var(--warn); }
+.badge.archived { background: var(--dim); }
+
+/* --- key/value list --------------------------------------------------- */
+/* Grid rather than <table> because it collapses to one column cleanly.
+   Used by help, contact, experience. */
+.kv {
+  display: grid;
+  grid-template-columns: 16ch 1fr;
+  gap: 0 var(--sp-2);
+  margin: 0;
+}
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+@media (max-width: 560px) {
+  .kv { grid-template-columns: 1fr; }
+  .kv dt { margin-top: var(--sp-2); }
+}
+
+/* --- cursor ----------------------------------------------------------- */
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  height: 1.05em;
+  background: var(--accent);
+  vertical-align: -0.15em;
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* --- focus ------------------------------------------------------------ */
+/* Keyboard users need to see where they are. :focus-visible only fires for
+   keyboard nav, so mouse clicks stay clean. */
+a:focus-visible,
+.cmd:focus-visible,
+#scrollback:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* The prompt never gets a box — a terminal shows focus with its cursor, not a
+   border. The blinking caret (caret-color in layout.css) is the whole tell. */
+#input:focus,
+#input:focus-visible {
+  outline: none;
+}
+
+/* --- anything code-like ----------------------------------------------- */
+/* Monospace overflows fast on narrow screens. Any block that can't wrap
+   needs its own scroll rather than blowing out the page. */
+pre, .nowrap {
+  overflow-x: auto;
+  white-space: pre;
+  margin: var(--sp-2) 0;
+}
+
+
+/* ======================================================================
+   PER-COMMAND LAYOUTS
+   Append to components.css. Each block corresponds to one command file.
+   ====================================================================== */
+
+/* --- about: neofetch -------------------------------------------------- */
+.neofetch {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-4);
+  align-items: start;
+  margin-bottom: var(--sp-3);
+}
+.neofetch .art {
+  margin: 0;
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  line-height: 1.15;
+  white-space: pre;
+}
+.neofetch .who .host { color: var(--accent); }
+.neofetch .sep { color: var(--line); }
+.neofetch .row { display: flex; gap: 1ch; }
+.neofetch .k { color: var(--accent); min-width: 10ch; }
+.neofetch .v { color: var(--fg); }
+.neofetch .ok { color: var(--link); }
+@media (max-width: 620px) {
+  .neofetch { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .neofetch .art { font-size: var(--fs-xs); overflow-x: auto; }
+}
+.lede { color: var(--fg); margin-top: var(--sp-3); }
+
+/* --- projects: table + detail ----------------------------------------- */
+table.projects { width: 100%; border-collapse: collapse; }
+table.projects th {
+  text-align: left;
+  padding: 0 1ch var(--sp-1) 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--dim);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* Year is the last column and right-aligned — its header must follow. */
+table.projects th:last-child { text-align: right; }
+table.projects td { padding: var(--sp-1) 1ch var(--sp-1) 0; vertical-align: top; }
+table.projects .name  { white-space: nowrap; }
+table.projects .name .mk { color: var(--dim); user-select: none; }
+table.projects .stack { color: var(--alt); }
+table.projects .year  { color: var(--dim); white-space: nowrap; text-align: right; }
+table.projects tr.sub td {
+  padding: 0 0 var(--sp-2);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+@media (max-width: 620px) {
+  table.projects thead { display: none; }
+  table.projects td { display: inline-block; padding-right: 1.5ch; }
+  table.projects tr.sub td { display: block; padding-right: 0; }
+}
+.hard b { color: var(--fg); }
+.bullets { margin: var(--sp-1) 0; padding-left: 3ch; color: var(--muted); }
+.bullets li { margin: var(--sp-1) 0; }
+
+/* --- experience: timeline --------------------------------------------- */
+.timeline .line { white-space: pre-wrap; }
+.timeline .g { color: var(--line); user-select: none; }
+.timeline .head { margin: 0; }
+.timeline .org { color: var(--muted); }
+.timeline .when { color: var(--dim); font-size: var(--fs-sm); margin-left: 1ch; }
+.timeline .stack { color: var(--alt); font-size: var(--fs-sm); }
+/* Breathing room between highlight lines and between roles. */
+.timeline .bullet { margin-top: var(--sp-2); }
+.timeline .entry { margin-bottom: var(--sp-5); }
+.timeline .entry:last-child { margin-bottom: 0; }
+
+/* --- skills: tiers ----------------------------------------------------- */
+.tier { margin-bottom: var(--sp-3); }
+.tier-head { display: flex; gap: 1.5ch; align-items: baseline; flex-wrap: wrap; }
+.tier-name {
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 14ch;
+}
+.tier-note { color: var(--dim); font-size: var(--fs-sm); }
+.tier-items { color: var(--fg); margin-top: var(--sp-1); }
+
+/* --- education --------------------------------------------------------- */
+.edu { margin-bottom: var(--sp-3); padding-left: 2ch; border-left: 1px solid var(--line); }
+.edu-head { display: flex; gap: 1.5ch; align-items: baseline; flex-wrap: wrap; }
+.edu .when { color: var(--dim); font-size: var(--fs-sm); }
+.edu .org { color: var(--muted); }
+.edu .course { color: var(--alt); font-size: var(--fs-sm); margin-top: var(--sp-1); }
+
+/* --- contact: copy button ---------------------------------------------- */
+.copy {
+  font: inherit;
+  color: var(--link);
+  background: none;
+  border: 0;
+  border-bottom: 1px dashed currentColor;
+  padding: 0;
+  cursor: pointer;
+}
+.copy:hover { color: var(--accent); }
+.copy.copied { color: var(--accent); border-bottom-color: transparent; }

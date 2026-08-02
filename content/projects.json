@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "telemetry-monitor",
+    "name": "Telemetry Monitor",
+    "stack": ["C++", "TCP/UDP", "Real-time"],
+    "year": "2026",
+    "status": "shipped",
+    "tagline": "Real-time decoding and visualization of binary packet streams from embedded hardware.",
+    "what": "A desktop tool that ingests binary telemetry over TCP/UDP, decodes it against a user-defined packet schema, and renders a live KPI dashboard with per-channel plotting and a full CRC integrity pipeline.",
+    "hard": "Achieving thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet without dropping frames or blocking the UI.",
+    "highlights": [
+      "User-defined packet schema editor with preset and custom CRC algorithms.",
+      "Singleton service architecture with dedicated subservices for ingestion and connection management.",
+      "Auto-expanding KPI tiles and per-channel live plots."
+    ],
+    "repo": "",
+    "demo": ""
+  },
+  {
+    "slug": "lims",
+    "name": "Lab Inventory Management System",
+    "stack": ["Next.js", "TypeScript", "Tailwind", "Supabase"],
+    "year": "2025",
+    "status": "shipped",
+    "tagline": "Inventory, orders, and task delegation for a synthetic-biology team.",
+    "what": "A full-stack LIMS built for McMaster SynBio to manage lab inventory, orders, and task assignment, with server-side rendering and a uniform terminal-adjacent design.",
+    "hard": "Modelling row-level security so members only see what they should while keeping the schema simple enough to maintain.",
+    "highlights": [
+      "Supabase backend with RLS policies and authentication.",
+      "Next.js + TypeScript frontend with server-side components for fast routing."
+    ],
+    "repo": "",
+    "demo": ""
+  },
+  {
+    "slug": "portfolio",
+    "name": "Terminal Portfolio",
+    "stack": ["Vanilla JS", "CSS"],
+    "year": "2026",
+    "status": "wip",
+    "tagline": "The site you're looking at — a dependency-free terminal in the browser.",
+    "what": "A keyboard-driven portfolio that renders like a shell. Commands are ES modules, content lives in JSON, and everything is clickable so it works without typing.",
+    "hard": "Keeping it framework-free while staying discoverable — every command output doubles as clickable navigation.",
+    "highlights": [
+      "No build step, no dependencies — just static files.",
+      "Tab completion, command history, and did-you-mean suggestions."
+    ],
+    "repo": "https://github.com/farukefe/farukefe.github.io",
+    "demo": ""
+  }
+]

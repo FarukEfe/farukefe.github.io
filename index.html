@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>your name — backend engineer</title>
+<meta name="description" content="One sentence. This is what shows under your name in search results, so write it deliberately.">
+
+<link rel="canonical" href="https://yourhandle.github.io/">
+<meta name="theme-color" content="#12100e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+
+<!-- Social preview. Without these, shared links render as a blank rectangle.
+     og-image.png should be 1200x630 and live in static/ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourhandle.github.io/">
+<meta property="og:title" content="Faruk Efe Yencilek — Cybersecurity and CompBio">
+<meta property="og:description" content="Same sentence as the description above.">
+<meta property="og:image" content="https://yourhandle.github.io/static/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="./static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/tokens.css">
+<link rel="stylesheet" href="./css/layout.css">
+<link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+
+<!-- Four regions. Only #scrollback scrolls; the other three are pinned by
+     flex-shrink:0 in layout.css. JS only ever appends to #scrollback. -->
+<div id="app">
+
+  <header id="statusbar">
+    <span class="tag">PORTFOLIO</span>
+    <span id="sb-section">~</span>
+    <span class="sb-spacer"></span>
+    <span id="sb-clock"></span>
+  </header>
+
+  <main id="scrollback" tabindex="-1" aria-live="polite" aria-label="Command output"></main>
+
+  <div id="promptbar">
+    <label id="ps1" for="input">$</label>
+    <input id="input"
+           autocomplete="off" autocorrect="off" autocapitalize="off"
+           spellcheck="false" enterkeyhint="go"
+           aria-label="Type a command">
+  </div>
+
+  <footer id="keybinds">
+    <span><kbd>Tab</kbd> complete</span>
+    <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> history</span>
+    <span><kbd>Ctrl</kbd>+<kbd>L</kbd> clear</span>
+  </footer>
+
+</div>
+
+<!-- Read by search engines and anyone with JS disabled. Nothing above this
+     point contains a word of your actual content, so without this block the
+     page is empty to a crawler. Keep it in sync when you add a section. -->
+<noscript>
+  <div id="fallback">
+    <h1>Faruk Efe Yencilek</h1>
+    <p>Software Engineer</p>
+
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>project-name</strong> — what it does.
+          <a href="https://github.com/yourhandle/project-name">Source</a></li>
+    </ul>
+
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:you@example.com">you@example.com</a></li>
+      <li><a href="https://github.com/yourhandle">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yourhandle">LinkedIn</a></li>
+    </ul>
+  </div>
+</noscript>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

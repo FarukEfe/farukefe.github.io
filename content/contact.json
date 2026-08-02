@@ -1,0 +1,9 @@
+{
+  "email": "farukefeyencilek@gmail.com",
+  "links": [
+    { "label": "github", "url": "https://github.com/farukefe" },
+    { "label": "linkedin", "url": "https://www.linkedin.com/in/efeyencilek" }
+  ],
+  "resume": "./static/resume.pdf",
+  "preferred": "email"
+}

@@ -1,0 +1,130 @@
+/* The TUI frame. Four regions, only one scrolls.
+   This file positions things; it never sets a color that isn't a token. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;              /* the frame never scrolls, #scrollback does */
+}
+
+/* 100dvh, not 100vh — mobile address bars make vh taller than the visible
+   viewport, which pushes the prompt off screen. */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* --- status bar ------------------------------------------------------ */
+#statusbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  padding: var(--sp-1) var(--pad);
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+/* Reverse video — terminal-native emphasis. No border radius. */
+#statusbar .tag {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0 1ch;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+#statusbar .sb-spacer { flex: 1; }
+#sb-clock { color: var(--dim); font-variant-numeric: tabular-nums; }
+
+/* --- scrollback ------------------------------------------------------ */
+/* flex:1 makes this absorb all leftover height, which is what pins the
+   prompt to the bottom without any JS. min-height:0 is required or flex
+   children refuse to shrink below their content and the whole page scrolls. */
+#scrollback {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;   /* stop scroll chaining to the page on iOS */
+  padding: var(--sp-3) var(--pad) 0;   /* left-aligned to the page gutter, not centered */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+#scrollback::-webkit-scrollbar { width: 10px; }
+#scrollback::-webkit-scrollbar-thumb { background: var(--line); }
+#scrollback::-webkit-scrollbar-track { background: transparent; }
+
+#scrollback > *:last-child { margin-bottom: var(--sp-4); }
+
+/* --- prompt ---------------------------------------------------------- */
+/* Same left gutter as #scrollback so the prompt lines up with the content
+   column. The bar still spans full width for its background and top border. */
+#promptbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 1ch;
+  padding: var(--sp-2) var(--pad);
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+#ps1 {
+  color: var(--accent);
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+}
+/* A real <input> is what makes the mobile keyboard open on tap.
+   Don't swap it for a contenteditable or a fake cursor. */
+#input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  padding: 0;
+  color: var(--fg);
+  font: inherit;
+  caret-color: var(--accent);
+}
+
+/* --- keybind hints --------------------------------------------------- */
+/* env(safe-area-inset-bottom) keeps this clear of the iOS home indicator. */
+#keybinds {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-1) var(--sp-3);
+  padding: var(--sp-1) var(--pad) calc(var(--sp-1) + env(safe-area-inset-bottom));
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-xs);
+  color: var(--dim);
+}
+#keybinds kbd {
+  font: inherit;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 0 0.6ch;
+}
+/* Physical keys are meaningless on touch. */
+@media (hover: none) and (pointer: coarse) {
+  #keybinds { display: none; }
+}
+
+#fallback { max-width: var(--prose); margin: var(--sp-5) auto; padding: 0 var(--pad); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

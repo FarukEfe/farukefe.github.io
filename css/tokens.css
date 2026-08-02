@@ -1,0 +1,72 @@
+/* Design tokens.
+   Every color, size, and spacing value lives here. If you find a hex code
+   in another file, it belongs in this one. */
+
+:root {
+  /* Warm phosphor — amber on near-black. The IBM 3270 lineage rather than
+     the neon-green cliche. Named by role, not hue, so a theme swap doesn't
+     leave you with a variable called --orange that resolves to blue. */
+  --bg:      #0d0b14;   /* near-black, violet cast */
+  --panel:   #15121f;
+  --line:    #262138;
+
+  --fg:      #c3bdda;   /* dimmed lilac-white — deliberately off pure white
+                          so body text sits a step back from headings */
+  --muted:   #8b82ad;
+  --dim:     #4d4666;
+
+  --accent:  #b58cff;   /* bright lilac — the one loud thing */
+  --link:    #67e8d4;   /* teal, for contrast against all that violet */
+  --alt:     #f0a6d0;   /* pink, third category */
+  --warn:    #ffc76b;
+  --error:   #ff7a8a;
+
+  /* Type — one face. In a terminal, mixing fonts breaks the illusion;
+     hierarchy comes from weight, size, and color instead. IBM Plex Mono
+     leans into the 3270 lineage the palette already nods to — squarer and
+     more machined than JetBrains, which is the "tech-y" read we want. */
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --fs-base:   clamp(12px, 0.5rem + 0.38vw, 13.5px);
+  --fs-sm:     0.86em;
+  --fs-xs:     0.78em;
+  --lh:        1.65;
+
+  /* Spacing — one scale. Resist adding values to it. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 40px;
+
+  --pad:     clamp(12px, 3vw, 28px);   /* horizontal page gutter */
+  --measure: 82ch;                      /* max width of the content column */
+  --prose:   72ch;                      /* max width of running prose */
+}
+
+/* Light mode. Same variables, different values — nothing else in the
+   codebase needs to know this exists. Someone will open your site
+   outdoors on a phone. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:     #f5f0e6;
+    --panel:  #eae3d5;
+    --line:   #d5cab5;
+
+    --fg:     #2e2a24;
+    --muted:  #6b6154;
+    --dim:    #948a7b;
+
+    --accent: #a8620d;
+    --link:   #1f7a68;
+    --alt:    #6b4f96;
+    --warn:   #8a6510;
+    --error:  #a83a2e;
+  }
+}
+
+/* Extra themes: override the same variables under an attribute, then a
+   `theme` command sets document.documentElement.dataset.theme. Nothing
+   else changes.
+
+   [data-theme="gruvbox"] { --bg:#282828; --accent:#fabd2f; ... }
+*/
