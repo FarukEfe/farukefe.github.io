@@ -1,26 +1,35 @@
 {
   "groups": [
     {
-      "name": "Fluent",
-      "note": "daily drivers",
-      "items": ["TypeScript", "Python", "Linux", "Bash", "Next.js", "Tailwind"]
+      "name": "Programming Languages",
+      "note": "In my current trajectory, I am leaning on learning and prioritizing Rust as my primary programming language.",
+      "items": ["Python", "C & C++", "Java", "TypeScript", "Rust", "R", "SQL"]
     },
     {
-      "name": "Comfortable",
-      "note": "used on real projects",
-      "items": ["nginx", "Docker", "GitLab CI/CD", "Supabase", "R", "COBRApy"]
+      "name": "Data Science + Machine Learning",
+      "note": "My most experience is in PyTorch, but looking to switch to TinyGrad or JAX for future development.",
+      "items": ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "NumPy", "SciPy", "Pandas", "Hugging Face", "Transformers", "Jupyter"]
     },
     {
-      "name": "Learning",
-      "note": "actively improving",
-      "items": ["Rust", "MATLAB / Simulink", "PyTorch"]
+      "name": "Computational Biology",
+      "note": "Particular focus on systems biology and genome-scale models.",
+      "items": ["COBRApy", "GECKOpy", "Bioconductor", "Nupack", "ViennaRNA", "Escher", "Memote"]
+    },
+    {
+        "name": "Full-stack Development",
+        "note": "My primary stack is Next.js + TypeScript + Tailwind, with either Supabase or MongoDB for the backend.",
+        "items": ["Next.js", "React.js", "Node.js", "FastAPI", "Flask", "PostgreSQL", "MongoDB", "Supabase", "Tailwind"]
+    },
+    {
+        "name": "Other Tools & Systems",
+        "note": "I currently use MacOS and Ubuntu for Linux, but gaining more fluency in Arch Linux by the day.",
+        "items": ["Git", "Ubuntu", "Arch", "Bash", "Docker"]
     }
   ],
   "domains": [
     "Cybersecurity",
     "Computational Biology",
     "Computer Vision",
-    "Full-stack Web",
-    "Embedded / Real-time"
+    "Full-stack Development"
   ]
 }

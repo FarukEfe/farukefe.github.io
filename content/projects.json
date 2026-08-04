@@ -1,38 +1,5 @@
 [
   {
-    "slug": "telemetry-monitor",
-    "name": "Telemetry Monitor",
-    "stack": ["C++", "TCP/UDP", "Real-time"],
-    "year": "2026",
-    "status": "shipped",
-    "tagline": "Real-time decoding and visualization of binary packet streams from embedded hardware.",
-    "what": "A desktop tool that ingests binary telemetry over TCP/UDP, decodes it against a user-defined packet schema, and renders a live KPI dashboard with per-channel plotting and a full CRC integrity pipeline.",
-    "hard": "Achieving thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet without dropping frames or blocking the UI.",
-    "highlights": [
-      "User-defined packet schema editor with preset and custom CRC algorithms.",
-      "Singleton service architecture with dedicated subservices for ingestion and connection management.",
-      "Auto-expanding KPI tiles and per-channel live plots."
-    ],
-    "repo": "",
-    "demo": ""
-  },
-  {
-    "slug": "lims",
-    "name": "Lab Inventory Management System",
-    "stack": ["Next.js", "TypeScript", "Tailwind", "Supabase"],
-    "year": "2025",
-    "status": "shipped",
-    "tagline": "Inventory, orders, and task delegation for a synthetic-biology team.",
-    "what": "A full-stack LIMS built for McMaster SynBio to manage lab inventory, orders, and task assignment, with server-side rendering and a uniform terminal-adjacent design.",
-    "hard": "Modelling row-level security so members only see what they should while keeping the schema simple enough to maintain.",
-    "highlights": [
-      "Supabase backend with RLS policies and authentication.",
-      "Next.js + TypeScript frontend with server-side components for fast routing."
-    ],
-    "repo": "",
-    "demo": ""
-  },
-  {
     "slug": "portfolio",
     "name": "Terminal Portfolio",
     "stack": ["Vanilla JS", "CSS"],
@@ -46,6 +13,140 @@
       "Tab completion, command history, and did-you-mean suggestions."
     ],
     "repo": "https://github.com/farukefe/farukefe.github.io",
+    "demo": "https://farukefe.github.io/"
+  },
+  {
+    "slug": "telemetry-monitor",
+    "name": "Telemetry Monitor",
+    "stack": ["C++", "TCP/UDP", "Real-time"],
+    "year": "2026",
+    "status": "shipped",
+    "tagline": "Real-time decoding and visualization of binary packet streams from embedded hardware. Built for a defense internship so I can't share the codebase.",
+    "what": "A desktop tool that ingests binary telemetry over TCP/UDP, decodes it against a user-defined packet schema, and renders a live KPI dashboard with per-channel plotting and a full CRC integrity pipeline.",
+    "hard": "Achieving thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet without dropping frames or blocking the UI.",
+    "highlights": [
+      "User-defined packet schema editor with preset and custom CRC algorithms.",
+      "Singleton service architecture with dedicated subservices for ingestion and connection management.",
+      "Auto-expanding KPI tiles and per-channel live plots."
+    ],
+    "repo": "",
+    "demo": ""
+  },
+  {
+    "slug": "rna-thermosensor-designer",
+    "name": "RNA Thermosensor Designer",
+    "stack": ["Python", "NUPACK", "NUAD", "ViennaRNA"],
+    "year": "2026",
+    "status": "finished",
+    "tagline": "Feedback design pipeline to evolve RNA sequences that melt at a target temperature.",
+    "what": "A computational pipeline that runs N independent NUAD searches to produce RNA thermosensor candidates. Each run mutates sequences via Hamming-distance steps scored against a constraint set covering GC composition, loop size, stem length, and Kozak exposure probability.",
+    "hard": "Combining structural constraints (stem/loop geometry, GC balance) with a thermodynamic objective (Kozak exposure probability at a target Tm) into a single differentiable score that NUAD can minimize without the runs collapsing to the same local optimum.",
+    "highlights": [
+      "Multi-run search with per-run RNG seeds for sequence diversity and deduplication.",
+      "Custom NUAD constraint classes for stem length, loop size, GC composition, and Kozak exposure.",
+      "Exposure probability computed via NUPACK ensemble thermodynamics at the target melting temperature."
+    ],
+    "repo": "https://github.com/farukefe/RNAt-feedback-design",
+    "demo": ""
+  },
+  {
+    "slug": "mcmaster-synbio",
+    "name": "McMaster SynBio Website",
+    "stack": ["Next.js", "TypeScript", "Tailwind", "Netlify"],
+    "year": "2025",
+    "status": "shipped",
+    "tagline": "Maintainer of the McMaster SynBio club's public site.",
+    "what": "The public-facing site for McMaster SynBio, built with the Next.js App Router and incrementally prerendered on Netlify. As one of the maintainers I handle feature work, content updates, and dependency upkeep on a live org site.",
+    "highlights": [
+      "Next.js App Router with incremental static regeneration (ISR) on Netlify.",
+      "Ongoing maintenance: features, content, and dependency upkeep on a production site."
+    ],
+    "repo": "",
+    "demo": "https://www.mcmastersynbio.ca/"
+  },
+  {
+    "slug": "igem-wiki",
+    "name": "iGEM 2025 Wiki — Sterosaurus",
+    "stack": ["Next.js", "TypeScript", "Tailwind", "Motion", "GitLab CI/CD"],
+    "year": "2025",
+    "status": "shipped",
+    "tagline": "McMaster's iGEM 2025 project wiki, hardened for iGEM's archival subpath hosting. Live at 2025.igem.wiki/mcmasteru.",
+    "what": "The public wiki documenting McMaster's iGEM 2025 project. A Next.js static export deployed through iGEM's own GitLab CI/CD, where every team's site is served under a fixed subpath and archived permanently for judging.",
+    "hard": "iGEM runs the site under a non-root subpath (/mcmasteru/) on their infrastructure with no server. Getting a Next.js export to resolve every asset, route, and image under that basePath — and publish cleanly through their GitLab pipeline — was most of the work.",
+    "highlights": [
+      "Configured Next.js basePath/assetPrefix so the whole app runs under /mcmasteru/.",
+      "Static export with no SSR, so the wiki stays self-contained and archivable.",
+      "Set up the GitLab CI/CD pipeline to build and publish on push."
+    ],
+    "repo": "",
+    "demo": "https://2025.igem.wiki/mcmasteru/"
+  },
+  {
+    "slug": "ergosterol",
+    "name": "Ergosterol Overproduction in C. reinhardtii",
+    "stack": ["Python", "COBRApy", "GECKOpy", "Memote", "Escher"],
+    "year": "2025",
+    "status": "finished",
+    "tagline": "Genome-scale metabolic modelling for ergosterol overproduction — the compbio core of McMaster's iGEM 2025. Accepted as an abstract to ALGS 2026 (Elsevier).",
+    "what": "Gap-fills the genome-scale metabolic model iCre1355 (Chlamydomonas reinhardtii) with a heterologous ergosterol pathway, then uses flux-balance analysis to test strategies for overproducing it — squalene synthase (SQS) and squalene epoxidase (SQE) overexpression plus the mevalonate (MVA) pathway, across multiple donor strains.",
+    "hard": "Gap-filling a model that was never built for sterol biosynthesis: adding the ergosterol pathway to iCre1355 and getting FBA/FVA/GECKO to return feasible, biologically meaningful flux across 24 heterologous constructs and three trophic conditions — instead of the model routing around the change or collapsing to degenerate optima.",
+    "highlights": [
+      "Accepted as an abstract to ALGS 2026 (Elsevier).",
+      "Gap-filled iCre1355 under autotrophic, heterotrophic, and mixotrophic conditions; benchmarked model quality with Memote.",
+      "Built and analyzed 24 heterologous constructs (SQS/SQE + MVA across donor strains) via FBA, pFBA, and FVA.",
+      "Enzyme-constrained GECKO modelling and sensitivity analysis, with pathway maps rendered in Escher."
+    ],
+    "repo": "https://github.com/FarukEfe/cre-ergosterol-gsm",
+    "demo": ""
+  },
+  {
+    "slug": "methylation",
+    "name": "Epigenetic Markers of Memory Loss",
+    "stack": ["Python", "PyTorch", "XGBoost", "SHAP", "FastAPI", "Next.js"],
+    "year": "2025",
+    "status": "finished",
+    "tagline": "Predicting Alzheimer's risk and cognitive decline from DNA methylation profiles. Built at the HackBio hackathon.",
+    "what": "An end-to-end pipeline that predicts cognitive impairment from blood DNA-methylation data: EWAS feature selection over CpG sites, XGBoost and PyTorch (ConvNet/MLP) classifiers, SHAP for interpretability, all served by a FastAPI backend behind a Next.js dashboard.",
+    "hard": "Methylation data is wide and shallow — hundreds of thousands of CpG features against only a few hundred samples. Selecting disease-associated sites (EWAS) and regularizing the models hard enough to generalize instead of memorize was the whole game.",
+    "highlights": [
+      "EWAS feature selection to surface disease-associated CpG sites and genes.",
+      "XGBoost and PyTorch models with cross-validation; SHAP for per-prediction interpretability.",
+      "FastAPI inference backend serving a Next.js + Tailwind dashboard (ROC, SHAP, feature importance)."
+    ],
+    "repo": "https://github.com/hackbio-ca/epigenetic-memory-loss-methylation",
+    "demo": ""
+  },
+  {
+    "slug": "lims",
+    "name": "Lab Inventory Management System",
+    "stack": ["Next.js", "TypeScript", "Tailwind", "Supabase"],
+    "year": "2025",
+    "status": "finished",
+    "tagline": "Inventory, orders, and task delegation for a synthetic-biology team.",
+    "what": "A full-stack LIMS built for McMaster SynBio to manage lab inventory, orders, and task assignment, with server-side rendering and a uniform terminal-adjacent design.",
+    "hard": "Modelling row-level security so members only see what they should while keeping the schema simple enough to maintain.",
+    "highlights": [
+      "Supabase backend with RLS policies and authentication.",
+      "Next.js + TypeScript frontend with server-side components for fast routing."
+    ],
+    "repo": "https://github.com/Yongsoo-Cho/LIMS-Demo",
+    "demo": ""
+  },
+  {
+    "slug": "shunting-yard",
+    "name": "Shunting-Yard Math Compiler",
+    "stack": ["C", "Makefile", "Valgrind"],
+    "year": "2024",
+    "status": "finished",
+    "tagline": "A C program that parses and evaluates string math expressions, with numerical calculus.",
+    "what": "Evaluates arbitrary math expressions given as strings: the shunting-yard algorithm converts infix to Reverse Polish Notation using hand-rolled stack and queue structures, then evaluates it. Extends to numerical calculus — Riemann-sum integral approximation over two-variable functions.",
+    "hard": "Writing the parser and evaluator from scratch in C with manual memory management — the Makefile ships gdb and Valgrind targets precisely because keeping the stack/queue lifecycle leak-free was the tricky part.",
+    "highlights": [
+      "Shunting-yard infix-to-RPN conversion with a hand-rolled stack and queue.",
+      "Riemann-sum integral approximation for two-variable functions.",
+      "Makefile with test, debug (gdb), and leak-check (Valgrind) targets."
+    ],
+    "repo": "https://github.com/FarukEfe/shunting-yard-math-compiler-c",
     "demo": ""
   }
 ]
