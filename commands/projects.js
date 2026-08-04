@@ -52,11 +52,17 @@ function detail(all, slug, ctx) {
     ? `<ul class="bullets">${p.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join("")}</ul>`
     : "";
 
+  // Optional. Some projects (a maintained site, say) have no single "hard part"
+  // worth calling out — omit the field or leave it "" and the line disappears.
+  const hard = p.hard
+    ? `<p class="hard"><b>Hard part:</b> ${escapeHtml(p.hard)}</p>`
+    : "";
+
   ctx.write(
     section(p.name) +
     `<p class="stack">${escapeHtml(p.stack.join(" · "))} &nbsp;${badge(p.status.toUpperCase(), p.status)}</p>` +
     `<p>${escapeHtml(p.what)}</p>` +
-    `<p class="hard"><b>Hard part:</b> ${escapeHtml(p.hard)}</p>` +
+    hard +
     bullets +
     `<p>${p.repo ? link(p.repo, "source →") : ""} ${p.demo ? link(p.demo, "demo →") : ""}</p>` +
     `<p class="muted">Back to ${cmdLink("projects")}</p>`

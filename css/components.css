@@ -94,8 +94,10 @@ a:hover { color: var(--accent); }
   font-weight: 700;
   letter-spacing: 0.05em;
 }
+/* Only three states now: shipped (accent — live, the loud one), finished
+   (dim — done but not deployed), wip (warn — still in progress). */
 .badge.wip      { background: var(--warn); }
-.badge.archived { background: var(--dim); }
+.badge.finished { background: var(--dim); }
 
 /* --- key/value list --------------------------------------------------- */
 /* Grid rather than <table> because it collapses to one column cleanly.
@@ -224,7 +226,17 @@ table.projects tr.sub td {
 .timeline .when { color: var(--dim); font-size: var(--fs-sm); margin-left: 1ch; }
 .timeline .stack { color: var(--alt); font-size: var(--fs-sm); }
 /* Breathing room between highlight lines and between roles. */
-.timeline .bullet { margin-top: var(--sp-2); }
+/* Hanging indent for the faked bullet. The marker (" • ") lives inline with
+   the text, so it has no list-item box — a wrapped line would otherwise fall
+   back to column 0. padding-left reserves the marker's width on every line;
+   the matching negative text-indent pulls only the first line back under it.
+   In a monospace face the marker is exactly 4 cells (" • " plus the space
+   before the text), so continuation lines sit flush under the first word. */
+.timeline .bullet {
+  margin-top: var(--sp-2);
+  padding-left: 4ch;
+  text-indent: -4ch;
+}
 .timeline .entry { margin-bottom: var(--sp-5); }
 .timeline .entry:last-child { margin-bottom: 0; }
 
