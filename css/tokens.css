@@ -48,17 +48,17 @@
    outdoors on a phone. */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg:     #f5f0e6;
-    --panel:  #eae3d5;
-    --line:   #d5cab5;
+    --bg:     #f0eeff;
+    --panel:  #e6e0fa;
+    --line:   #cfc8ef;
 
-    --fg:     #2e2a24;
-    --muted:  #6b6154;
-    --dim:    #948a7b;
+    --fg:     #1a1630;
+    --muted:  #5a507a;
+    --dim:    #9088b8;
 
-    --accent: #a8620d;
-    --link:   #1f7a68;
-    --alt:    #6b4f96;
+    --accent: #7040e0;
+    --link:   #1a7a68;
+    --alt:    #9b3a7a;
     --warn:   #8a6510;
     --error:  #a83a2e;
   }
