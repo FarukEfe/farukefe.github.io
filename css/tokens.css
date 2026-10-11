@@ -13,7 +13,9 @@
   --fg:      #c3bdda;   /* dimmed lilac-white — deliberately off pure white
                           so body text sits a step back from headings */
   --muted:   #8b82ad;
-  --dim:     #4d4666;
+  --dim:     #7d74a0;   /* lightened from #4d4666: old value was 2.2:1 on the
+                           bg, below WCAG AA even for large text. 4.5:1 now,
+                           still a clear step quieter than --muted. */
 
   --accent:  #b58cff;   /* bright lilac — the one loud thing */
   --link:    #67e8d4;   /* teal, for contrast against all that violet */
@@ -54,7 +56,7 @@
 
     --fg:     #1a1630;
     --muted:  #5a507a;
-    --dim:    #9088b8;
+    --dim:    #6d639c;  /* darkened from #9088b8 for the same WCAG reason */
 
     --accent: #7040e0;
     --link:   #1a7a68;

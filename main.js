@@ -22,7 +22,7 @@ async function main() {
     content,
   });
 
-  await boot(term);
+  await boot(term, { autorun: true });
 }
 
 main();

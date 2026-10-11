@@ -13,9 +13,9 @@ import { chips } from "./render.js";
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 /* Clickable entry points. Ordered the way you'd want someone to read them. */
-const START_HERE = ["about", "projects", "skills", "experience", "education", "contact", "help"];
+const START_HERE = ["about", "projects", "skills", "experience", "education", "resume", "contact", "help"];
 
-export async function boot(term) {
+export async function boot(term, { autorun = false } = {}) {
   startClock();
 
   // Border sized from the title so the box always closes, whatever you edit.
@@ -34,6 +34,14 @@ export async function boot(term) {
   );
 
   document.getElementById("input")?.focus();
+
+  // Land the visitor on `about` instead of an empty prompt. A recruiter
+  // should never have to guess that the site wants to be typed at.
+  // noclear keeps the banner above the output on this first run only.
+  if (autorun) {
+    const go = term.dispatch ?? term.run;
+    await go?.("about", { noclear: true });
+  }
 }
 
 /* Ticks #sb-clock once a second. Static after this — no other file writes it. */

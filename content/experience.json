@@ -1,27 +1,49 @@
 [
   {
+    "role": "AI Researcher",
+    "org": "McMaster Society of Artificial Intelligence",
+    "start": "2026-09",
+    "end": null,
+    "summary": "Project member on a student research team taking an AI project from ideation to a final research paper and presentation at CUCAI 2027.",
+    "highlights": [
+      "Selected for a research team of four to six students building toward CUCAI 2027.",
+      "Contributing research, literature review, and technical build work in weekly working sessions through March 2027."
+    ],
+    "stack": [],
+    "link": "https://mac-ai-society-website2026.vercel.app"
+  },
+  {
     "role": "AI Engineer Intern",
     "org": "HAVELSAN",
     "start": "2026-08",
-    "end": null,
-    "summary": "AI engineering internship in Ankara, Türkiye, working under the Artificial Intelligence Technologies Group Directorate.",
+    "end": "2026-09",
+    "summary": "AI engineering internship in Ankara, Türkiye, under the Artificial Intelligence Technologies Group Directorate.",
     "highlights": [
-      "Working under the Artificial Intelligence Technologies Group Directorate."
+      "Built a custom probabilistic transformer model that predicts the future displacement of ships, a learnable alternative to Interacting Multiple Model (IMM) filters.",
+      "Implemented an encoder-decoder backbone followed by a mixture density network that learns the Gaussian distribution of K different motion banks, optimized with a negative log loss (NLL).",
+      "The resulting model performed equal to the IMM benchmark and the classical transformer benchmark on 10% of the dataset, with tanh gradient saturation estimated under 1%.",
+      "Co-built a data-generation pipeline using Monte-Carlo and Latin Hypercube sampling methods, with a FastAPI backend service and Docker deployment hosting the pipeline for different model repositories.",
+      "Built the team's web interface for the pipeline in React 19 and TypeScript, covering scenario configuration, simulation runs, dataset browsing, and model-vs-baseline rankings per prediction horizon."
     ],
-    "stack": [],
-    "link": "https://www.havelsan.com.tr/"
+    "stack": [
+      "PyTorch",
+      "FastAPI",
+      "Docker",
+      "React",
+      "TypeScript"
+    ],
+    "link": "https://www.havelsan.com/en"
   },
   {
     "role": "Cybersecurity Intern",
     "org": "Stealth Startup",
     "start": "2026-07",
-    "end": null,
-    "summary": "Part-time security engineering and pen-testing systems project in Ankara, Türkiye, funded by major defense & aerospace firms including HAVELSAN, ASELSAN, TUSAŞ (TAI), and four others. Set to spin off into a D&A compliance startup in collaboration with SSB, where I will hold co-ownership.",
+    "end": "2026-09",
+    "summary": "Part-time security engineering and pen-testing project in Ankara, Türkiye, serving a defense and aerospace client base.",
     "highlights": [
-      "Full-stack: set up an isolated, self-hosted GitLab with custom shell-scripted CI/CD, a DMZ hosted on a Linux container with nginx, and a custom-written GitLab runner for deployment.",
+      "Set up an isolated, self-hosted GitLab with custom shell-scripted CI/CD, a DMZ hosted on a Linux container with nginx, and a custom-written GitLab runner for deployment.",
       "Provided a pipeline that deploys software to the web without exposing the codebase to any cloud service, including a local deployment testing environment hosted on Docker.",
-      "Cybersecurity engineering: consulted defense & aerospace companies on meeting ISO 9001, ISO 27001, ISO 14001, and ISO 45001 standards, covering quality assurance, information security, environmental management, and occupational health & safety systems.",
-      "Building a software ecosystem to enforce these standards by design."
+      "Consulted client companies on meeting ISO 9001 and ISO 27001 standards, covering quality assurance and information security."
     ],
     "stack": [
       "Linux",
@@ -39,12 +61,14 @@
     "end": "2026-07",
     "summary": "Intern at the Cyberpark office @ Bilkent in Ankara, Türkiye, working under the Flight Software Testing Unit.",
     "highlights": [
-      "Built real-time telemetry monitoring software for decoding and visualizing binary packet streams from embedded hardware over TCP/UDP.",
+      "Built real-time telemetry monitoring software in Python and PyQt6 for decoding and visualizing binary packet streams from embedded hardware over TCP/UDP.",
       "Shipped a user-defined packet schema editor, a live KPI dashboard with auto-expanding tiles, per-channel plotting, and a full CRC integrity pipeline supporting preset and custom algorithms.",
       "Designed around a clean singleton service architecture with subservices for packet ingestion and connection management.",
       "Achieved thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet."
     ],
     "stack": [
+      "Python",
+      "PyQt6",
       "TCP",
       "UDP",
       "CRC"
@@ -56,10 +80,11 @@
     "org": "McMaster SynBio",
     "start": "2025-12",
     "end": null,
-    "summary": "Leading the team toward IDEC 2026 @ Cambridge, UK, from Hamilton, Ontario, Canada.",
+    "summary": "Leading a 50-person student research team across iGEM 2025 and iDEC 2026 (Cambridge, UK), from Hamilton, Ontario, Canada.",
     "highlights": [
-      "Project webpage development and management.",
-      "Primary assist in the entrepreneurship and dry-lab modelling subtracks."
+      "Assisted the entrepreneurship subtrack with its financial model and market analysis, helping the team raise $50,000 in the Desjardins Cooperathon for the 2026 project.",
+      "Co-building a transformer model with a frozen RNA encoder backbone and a multi-layer head for structural inference on the dry-lab modelling track.",
+      "Developed and managed the team's project webpages for iGEM 2025 and iDEC 2026, writing the deployment scripts, standardizing shared components, and coordinating commits from five contributors on separate branches."
     ],
     "stack": [],
     "link": "https://www.mcmastersynbio.ca/"
@@ -116,6 +141,6 @@
       "Contributed to a synthetic biology project using E. coli as the chassis."
     ],
     "stack": [],
-    "link": "https://igem.sj.k12.tr/"
+    "link": "https://2021.igem.org/Team:Saint_Joseph"
   }
 ]

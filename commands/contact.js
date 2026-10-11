@@ -9,6 +9,7 @@ export default {
   name: "contact",
   desc: "how to reach me",
   aliases: ["email", "hire"],
+  section: true,
 
   run(args, ctx) {
     const c = ctx.content.contact;

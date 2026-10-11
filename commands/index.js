@@ -11,11 +11,12 @@ import experience from "./experience.js";
 import education  from "./education.js";
 import skills     from "./skills.js";
 import contact    from "./contact.js";
+import resume     from "./resume.js";
 import help       from "./help.js";
 import ls         from "./ls.js";
 import clear      from "./clear.js";
 
-const commands = [about, projects, experience, education, skills, contact, help, ls, clear];
+const commands = [about, projects, experience, education, skills, resume, contact, help, ls, clear];
 
 export const registry = new Map();
 for (const cmd of commands) {

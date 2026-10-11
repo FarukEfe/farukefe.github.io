@@ -1,11 +1,21 @@
 [
   {
-    "degree": "BASc, Computer Science (Co-op)",
+    "degree": "Bachelor of Computer Science, Honours Co-op",
     "institution": "McMaster University, Faculty of Engineering",
     "location": "Hamilton, Ontario, Canada",
     "start": "Sep 2023",
-    "end": "May 2028",
-    "note": "Bachelor of Applied Science."
+    "end": "May 2027",
+    "note": "3.73 GPA · 3× Dean's Honour List · Engineering Award of Excellence ($3,000).",
+    "coursework": [
+      "Software Design (A+)",
+      "Computer Networks & Security (A+)",
+      "Cryptography (A+)",
+      "Machine Learning (A-)",
+      "Operating Systems (A)",
+      "Data Structures & Algorithms (A-)",
+      "Predictive and Intelligent Control",
+      "Real-Time Systems and Control Applications"
+    ]
   },
   {
     "degree": "High School Diploma",

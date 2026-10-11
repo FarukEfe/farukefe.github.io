@@ -4,6 +4,7 @@ export default {
   name: "education",
   desc: "where I studied",
   aliases: ["edu"],
+  section: true,
 
   run(args, ctx) {
     const body = ctx.content.education.map(e => `

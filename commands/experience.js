@@ -20,6 +20,7 @@ export default {
   name: "experience",
   desc: "where I've worked",
   aliases: ["work-history", "cv"],
+  section: true,
 
   run(args, ctx) {
     const roles = ctx.content.experience;
@@ -35,7 +36,7 @@ export default {
         `<div class="line head"><b>${escapeHtml(r.role)}</b> <span class="org">@ ${escapeHtml(r.org)}</span> <span class="when">${escapeHtml(when(r.start, r.end))}</span></div>` +
         `<div class="line"><span class="stack">${escapeHtml(r.stack.join(" · "))}</span></div>` +
         bullets +
-        (r.link ? `<div class="line bullet fg">Find more at: ${link(r.link, r.link)}</div>` : "") +
+        (r.link ? `<div class="line bullet fg">↗ ${link(r.link, r.link.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</div>` : "") +
         `</div>`;
     }).join("");
 

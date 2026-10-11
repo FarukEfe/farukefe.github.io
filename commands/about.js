@@ -4,12 +4,13 @@
  * clocks it instantly.
  */
 
-import { escapeHtml, section, cmdLink } from "../render.js";
+import { escapeHtml, section } from "../render.js";
 
 export default {
   name: "about",
   desc: "who I am",
   aliases: ["whoami"],
+  section: true,
 
   run(args, ctx) {
     const me = ctx.content.about;
@@ -38,8 +39,7 @@ export default {
          </div>
        </div>` +
       `<p class="lede">${escapeHtml(me.tagline)}</p>` +
-      bio +
-      `<p class="muted">Next: ${cmdLink("projects")} ${cmdLink("experience")} ${cmdLink("contact")}</p>`
+      bio
     );
   },
 };

@@ -12,6 +12,7 @@ export default {
   name: "projects",
   desc: "things I've built",
   aliases: ["work"],
+  section: true,
 
   run(args, ctx) {
     const all = ctx.content.projects;

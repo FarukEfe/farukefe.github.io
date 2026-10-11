@@ -11,6 +11,7 @@ export default {
   name: "help",
   desc: "list every command",
   aliases: ["?", "commands"],
+  section: true,
 
   run(args, ctx) {
     const rows = visible().map(c => {

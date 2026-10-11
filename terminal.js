@@ -6,7 +6,7 @@
  * Commands know nothing about this file — they receive `ctx`.
  */
 
-import { registry, complete, suggest } from "./commands/index.js";
+import { registry, complete, suggest, visible } from "./commands/index.js";
 
 export function createTerminal({ root, input, content }) {
 
@@ -55,25 +55,41 @@ export function createTerminal({ root, input, content }) {
     content,
     write,
     clear: () => { root.innerHTML = ""; },
-    run:   line => dispatch(line),
+    run:   (line, opts) => dispatch(line, opts),
   };
+
+  /* Every section command's output ends with this row, so wherever a
+     visitor lands they can always see where else to go. One place to
+     change, and it can never drift from the registry. */
+  function navFooter(current) {
+    const rest = visible()
+      .filter(c => c.section && c.name !== current)
+      .map(c => `<button class="cmd" data-cmd="${c.name}">${c.name}</button>`)
+      .join("");
+    return `<div class="chips"><span class="muted">cd:</span>${rest}</div>`;
+  }
 
   /* ------------------------------------------------------------------
      dispatch — parse, look up, execute
      ------------------------------------------------------------------ */
-  async function dispatch(raw) {
+  async function dispatch(raw, { noclear = false } = {}) {
     const line = raw.trim();
-    echo(line);
-    if (!line) return;
-
-    history.push(line);
-    hIndex = history.length;
+    if (!line) { echo(line); return; }
 
     // DECISION 1: naive arg splitting. Breaks on `search "two words"`.
     // Fine until you add a command that needs quoted arguments; then
     // swap in a small tokenizer here and nothing else changes.
     const [name, ...args] = line.split(/\s+/);
     const cmd = registry.get(name.toLowerCase());
+
+    // Section commands behave like pages: wipe the screen before the
+    // output so a visitor never scrolls through a pile of old sections.
+    // `noclear` is for boot, which wants the banner to survive.
+    if (cmd?.section && !noclear) ctx.clear();
+
+    echo(line);
+    history.push(line);
+    hIndex = history.length;
 
     // Statusbar breadcrumb: reflect the section you last looked at.
     const sb = document.getElementById("sb-section");
@@ -98,6 +114,7 @@ export function createTerminal({ root, input, content }) {
     input.disabled = true;
     try {
       await cmd.run(args, ctx);
+      if (cmd.section) write(navFooter(cmd.name), "block nav");
     } catch (err) {
       console.error(err);
       write(`<span class="err">${escapeText(name)}: failed.</span>`);

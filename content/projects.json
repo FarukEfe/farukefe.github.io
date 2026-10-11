@@ -5,11 +5,11 @@
     "stack": ["Vanilla JS", "CSS"],
     "year": "2026",
     "status": "wip",
-    "tagline": "The site you're looking at — a dependency-free terminal in the browser.",
+    "tagline": "The site you're looking at. A dependency-free terminal in the browser.",
     "what": "A keyboard-driven portfolio that renders like a shell. Commands are ES modules, content lives in JSON, and everything is clickable so it works without typing.",
-    "hard": "Keeping it framework-free while staying discoverable — every command output doubles as clickable navigation.",
+    "hard": "Keeping it framework-free while staying discoverable. Every command output doubles as clickable navigation.",
     "highlights": [
-      "No build step, no dependencies — just static files.",
+      "No build step, no dependencies, just static files.",
       "Tab completion, command history, and did-you-mean suggestions."
     ],
     "repo": "https://github.com/farukefe/farukefe.github.io",
@@ -18,18 +18,34 @@
   {
     "slug": "telemetry-monitor",
     "name": "Telemetry Monitor",
-    "stack": ["C++", "TCP/UDP", "Real-time"],
+    "stack": ["Python", "PyQt6", "TCP/UDP", "Real-time"],
     "year": "2026",
     "status": "shipped",
     "tagline": "Real-time decoding and visualization of binary packet streams from embedded hardware. Built for a defense internship so I can't share the codebase.",
-    "what": "A desktop tool that ingests binary telemetry over TCP/UDP, decodes it against a user-defined packet schema, and renders a live KPI dashboard with per-channel plotting and a full CRC integrity pipeline.",
-    "hard": "Achieving thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet without dropping frames or blocking the UI.",
+    "what": "A desktop tool in Python and PyQt6 that ingests binary telemetry over TCP/UDP, decodes it against a user-defined packet schema, and renders a live KPI dashboard with per-channel plotting and a full CRC integrity pipeline.",
+    "hard": "Achieving thread-safe packet ingestion at 4000+ packets/sec with >1000 bytes per packet without blocking the UI.",
     "highlights": [
       "User-defined packet schema editor with preset and custom CRC algorithms.",
       "Singleton service architecture with dedicated subservices for ingestion and connection management.",
       "Auto-expanding KPI tiles and per-channel live plots."
     ],
     "repo": "",
+    "demo": ""
+  },
+  {
+    "slug": "rnat-activity-prediction",
+    "name": "RNAt Activity Prediction",
+    "stack": ["Python", "PyTorch"],
+    "year": "2026",
+    "status": "finished",
+    "tagline": "Predicts how active an engineered RNA sequence will be, so candidate designs can be ranked before anyone builds one in the lab.",
+    "what": "Pairs a frozen pretrained RNA language model embedding with five folding-thermodynamics features and learns the interaction with a PyTorch regression head. Five encoders benchmarked on identical heads over 398k sequences.",
+    "hard": "Folding every sequence at the assay's real temperature with the downstream coding context attached. Without that context the start codon is absent entirely and accessibility at the 3' edge reads 0.87 instead of 0.45, which silently corrupts the feature.",
+    "highlights": [
+      "The UTR-specialized encoder reached Spearman rho 0.588 on a 19,906-sequence test split, beating a 640-dimension general RNA model on a 128-dimension embedding and roughly doubling the single-feature thermodynamic baseline of 0.29.",
+      "Held out the top 5% by read depth as the test set, so the model is scored against the most trustworthy labels in the dataset."
+    ],
+    "repo": "https://github.com/McMasterSynBio/rnat-activity-ml",
     "demo": ""
   },
   {
@@ -46,7 +62,7 @@
       "Custom NUAD constraint classes for stem length, loop size, GC composition, and Kozak exposure.",
       "Exposure probability computed via NUPACK ensemble thermodynamics at the target melting temperature."
     ],
-    "repo": "https://github.com/farukefe/RNAt-feedback-design",
+    "repo": "https://github.com/McMasterSynBio/RNAt-feedback-design",
     "demo": ""
   },
   {
@@ -70,13 +86,13 @@
     "stack": ["Next.js", "TypeScript", "Tailwind", "Motion", "GitLab CI/CD"],
     "year": "2025",
     "status": "shipped",
-    "tagline": "McMaster's iGEM 2025 project wiki, hardened for iGEM's archival subpath hosting. Live at 2025.igem.wiki/mcmasteru.",
-    "what": "The public wiki documenting McMaster's iGEM 2025 project. A Next.js static export deployed through iGEM's own GitLab CI/CD, where every team's site is served under a fixed subpath and archived permanently for judging.",
-    "hard": "iGEM runs the site under a non-root subpath (/mcmasteru/) on their infrastructure with no server. Getting a Next.js export to resolve every asset, route, and image under that basePath — and publish cleanly through their GitLab pipeline — was most of the work.",
+    "tagline": "McMaster's iGEM 2025 project wiki, archived permanently on iGEM's infrastructure. Live at 2025.igem.wiki/mcmasteru.",
+    "what": "The public wiki documenting McMaster's iGEM 2025 project for judges and visitors. I designed the app in Next.js, TypeScript, Tailwind, and Motion, and optimized the GitLab CI/CD script that deploys it to iGEM's archival hosting.",
+    "hard": "Designing a site that carries a full research narrative (project, modelling, lab notebook, judging criteria) while deploying cleanly through iGEM's GitLab pipeline.",
     "highlights": [
-      "Configured Next.js basePath/assetPrefix so the whole app runs under /mcmasteru/.",
-      "Static export with no SSR, so the wiki stays self-contained and archivable.",
-      "Set up the GitLab CI/CD pipeline to build and publish on push."
+      "Designed the wiki app in Next.js, TypeScript, Tailwind, and Motion.",
+      "Optimized the GitLab CI/CD deployment script the wiki publishes through.",
+      "Archived permanently on iGEM's infrastructure for judging."
     ],
     "repo": "",
     "demo": "https://2025.igem.wiki/mcmasteru/"
@@ -87,9 +103,9 @@
     "stack": ["Python", "COBRApy", "GECKOpy", "Memote", "Escher"],
     "year": "2025",
     "status": "finished",
-    "tagline": "Genome-scale metabolic modelling for ergosterol overproduction — the compbio core of McMaster's iGEM 2025. Accepted as an abstract to ALGS 2026 (Elsevier).",
-    "what": "Gap-fills the genome-scale metabolic model iCre1355 (Chlamydomonas reinhardtii) with a heterologous ergosterol pathway, then uses flux-balance analysis to test strategies for overproducing it — squalene synthase (SQS) and squalene epoxidase (SQE) overexpression plus the mevalonate (MVA) pathway, across multiple donor strains.",
-    "hard": "Gap-filling a model that was never built for sterol biosynthesis: adding the ergosterol pathway to iCre1355 and getting FBA/FVA/GECKO to return feasible, biologically meaningful flux across 24 heterologous constructs and three trophic conditions — instead of the model routing around the change or collapsing to degenerate optima.",
+    "tagline": "Genome-scale metabolic modelling for ergosterol overproduction, the compbio core of McMaster's iGEM 2025. Accepted as an abstract to ALGS 2026 (Elsevier).",
+    "what": "Gap-fills the genome-scale metabolic model iCre1355 (Chlamydomonas reinhardtii) with a heterologous ergosterol pathway, then uses flux-balance analysis to test strategies for overproducing it: squalene synthase (SQS) and squalene epoxidase (SQE) overexpression plus the mevalonate (MVA) pathway, across multiple donor strains.",
+    "hard": "Gap-filling a model that was never built for sterol biosynthesis: adding the ergosterol pathway to iCre1355 and getting FBA/FVA/GECKO to return feasible, biologically meaningful flux across 24 heterologous constructs and three trophic conditions, instead of the model routing around the change or collapsing to degenerate optima.",
     "highlights": [
       "Accepted as an abstract to ALGS 2026 (Elsevier).",
       "Gap-filled iCre1355 under autotrophic, heterotrophic, and mixotrophic conditions; benchmarked model quality with Memote.",
@@ -107,7 +123,7 @@
     "status": "finished",
     "tagline": "Predicting Alzheimer's risk and cognitive decline from DNA methylation profiles. Built at the HackBio hackathon.",
     "what": "An end-to-end pipeline that predicts cognitive impairment from blood DNA-methylation data: EWAS feature selection over CpG sites, XGBoost and PyTorch (ConvNet/MLP) classifiers, SHAP for interpretability, all served by a FastAPI backend behind a Next.js dashboard.",
-    "hard": "Methylation data is wide and shallow — hundreds of thousands of CpG features against only a few hundred samples. Selecting disease-associated sites (EWAS) and regularizing the models hard enough to generalize instead of memorize was the whole game.",
+    "hard": "Methylation data is wide and shallow. Hundreds of thousands of CpG features against only a few hundred samples, so selecting disease-associated sites (EWAS) and regularizing the models hard enough to generalize instead of memorize was the whole game.",
     "highlights": [
       "EWAS feature selection to surface disease-associated CpG sites and genes.",
       "XGBoost and PyTorch models with cross-validation; SHAP for per-prediction interpretability.",
@@ -139,8 +155,8 @@
     "year": "2024",
     "status": "finished",
     "tagline": "A C program that parses and evaluates string math expressions, with numerical calculus.",
-    "what": "Evaluates arbitrary math expressions given as strings: the shunting-yard algorithm converts infix to Reverse Polish Notation using hand-rolled stack and queue structures, then evaluates it. Extends to numerical calculus — Riemann-sum integral approximation over two-variable functions.",
-    "hard": "Writing the parser and evaluator from scratch in C with manual memory management — the Makefile ships gdb and Valgrind targets precisely because keeping the stack/queue lifecycle leak-free was the tricky part.",
+    "what": "Evaluates arbitrary math expressions given as strings: the shunting-yard algorithm converts infix to Reverse Polish Notation using hand-rolled stack and queue structures, then evaluates it. Extends to numerical calculus with Riemann-sum integral approximation over two-variable functions.",
+    "hard": "Writing the parser and evaluator from scratch in C with manual memory management. The Makefile ships gdb and Valgrind targets precisely because keeping the stack/queue lifecycle leak-free was the tricky part.",
     "highlights": [
       "Shunting-yard infix-to-RPN conversion with a hand-rolled stack and queue.",
       "Riemann-sum integral approximation for two-variable functions.",

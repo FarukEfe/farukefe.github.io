@@ -9,6 +9,7 @@ export default {
   name: "skills",
   desc: "what I work with",
   aliases: ["stack"],
+  section: true,
 
   run(args, ctx) {
     const { groups, domains } = ctx.content.skills;
