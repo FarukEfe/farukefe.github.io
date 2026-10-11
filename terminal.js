@@ -91,10 +91,6 @@ export function createTerminal({ root, input, content }) {
     history.push(line);
     hIndex = history.length;
 
-    // Statusbar breadcrumb: reflect the section you last looked at.
-    const sb = document.getElementById("sb-section");
-    if (sb && cmd) sb.textContent = cmd.name;
-
     if (!cmd) {
       const guess = suggest(name);
       write(
