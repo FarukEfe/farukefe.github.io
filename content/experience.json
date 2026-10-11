@@ -35,22 +35,25 @@
     "link": "https://www.havelsan.com/en"
   },
   {
-    "role": "Cybersecurity Intern",
+    "role": "Startup Intern (part-time)",
     "org": "Stealth Startup",
-    "start": "2026-07",
+    "start": "2026-06",
     "end": "2026-09",
-    "summary": "Part-time security engineering and pen-testing project in Ankara, Türkiye, serving a defense and aerospace client base.",
+    "summary": "Part-time role at an early-stage startup in Ankara, Türkiye, split between compliance audit work and full-stack builds for government and industry clients.",
     "highlights": [
-      "Set up an isolated, self-hosted GitLab with custom shell-scripted CI/CD, a DMZ hosted on a Linux container with nginx, and a custom-written GitLab runner for deployment.",
-      "Provided a pipeline that deploys software to the web without exposing the codebase to any cloud service, including a local deployment testing environment hosted on Docker.",
-      "Consulted client companies on meeting ISO 9001 and ISO 27001 standards, covering quality assurance and information security."
+      "Ran ISO 9001 and ISO 27001 audits with client companies, covering quality assurance and information security.",
+      "Built full-stack service applications for three government ministries: health, tourism, and commerce.",
+      "Started the build of a B2B industrial and commerce platform, currently at the prototype stage.",
+      "Set up Netlify deploy bots and local Git for the team, configured domain services, and resolved Google indexing and metadata issues so client sites deploy securely and stay discoverable."
     ],
     "stack": [
-      "Linux",
-      "GitLab CI/CD",
-      "nginx",
+      "TypeScript",
+      "Next.js",
+      "Netlify",
+      "Git",
       "Docker",
-      "Shell"
+      "Shell",
+      "ISO 9001/27001"
     ],
     "link": ""
   },

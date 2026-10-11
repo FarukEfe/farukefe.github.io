@@ -1,43 +1,18 @@
 /**
  * Startup sequence. Runs once, after the terminal is wired and content is
- * loaded. Owns the two things nothing else touches: the statusbar clock and
- * the opening banner.
+ * loaded. Owns the statusbar clock, then hands straight off to `about` —
+ * the landing experience IS the about section, no banner, no chip row.
  *
  * Kept out of terminal.js so the shell stays generic — boot is app chrome,
  * not part of dispatch.
  */
 
-import { config } from "./config.js";
-import { chips } from "./render.js";
-
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-/* Clickable entry points. Ordered the way you'd want someone to read them. */
-const START_HERE = ["about", "projects", "skills", "experience", "education", "resume", "contact", "help"];
-
 export async function boot(term, { autorun = false } = {}) {
   startClock();
-
-  // Border sized from the title so the box always closes, whatever you edit.
-  const title = "  Faruk Efe Yencilek — Portfolio  ";
-  const bar = "─".repeat(title.length);
-  const banner = [`┌${bar}┐`, `│${title}│`, `└${bar}┘`].join("\n");
-
-  term.write(`<pre style="color:var(--accent);margin:0">${banner}</pre>`);
-
-  await sleep(config.bootDelay);
-
-  term.write(
-    `<p class="muted">Type a command, or click one below. ` +
-    `<button class="cmd" data-cmd="help">help</button> lists everything.</p>` +
-    chips(START_HERE)
-  );
-
   document.getElementById("input")?.focus();
 
   // Land the visitor on `about` instead of an empty prompt. A recruiter
   // should never have to guess that the site wants to be typed at.
-  // noclear keeps the banner above the output on this first run only.
   if (autorun) {
     const go = term.dispatch ?? term.run;
     await go?.("about", { noclear: true });

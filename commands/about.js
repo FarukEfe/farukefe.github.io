@@ -33,7 +33,7 @@ export default {
       `<div class="neofetch">
          <pre class="art">${escapeHtml(me.ascii.join("\n"))}</pre>
          <div class="info">
-           <div class="who"><b>${escapeHtml(me.name)}</b>@<span class="host">${escapeHtml(me.handle)}</span></div>
+           <div class="who"><b>${escapeHtml(me.name)}</b></div>
            <div class="sep">${"─".repeat(28)}</div>
            ${info}
          </div>
